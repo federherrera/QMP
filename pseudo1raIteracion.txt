@@ -1,0 +1,35 @@
+Pseudo de primera Iteracion.
+
+class Prenda {
+
+    Prenda(Tipo, Material, Color, Color)
+	if(validaciones para tipoDePrenda, Material y primerColor == NULL)
+		new prendaInvalidaException("Es una prenda invalida")
+}
+
+class Tipo {
+Categoria categoria
+}
+
+enum Categoria {
+PARTE_SUPERIOR
+CALZADO
+PARTE_INFERIOR
+ACCESORIO
+}
+
+
+class Material {
+}
+
+class Color {
+int red, green, blue
+    
+     Color(red, green, blue)
+
+}
+
+
+class prendaInvalidaException {
+
+}
