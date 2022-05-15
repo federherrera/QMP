@@ -1,0 +1,87 @@
+@startuml
+
+class Prenda{
+-tipo:Tipo
+-material:Material
+-colorP:Color
+-colorS:Color
+}
+
+Class Tipo{
+-categoria:Categoria
+}
+
+enum Categoria{
+PARTE_SUPERIOR
+CALZADO
+PARTE_INFERIOR
+ACCESORIO
+}
+
+class Material{
+-material:String
+-trama:Trama
+}
+
+enum Trama {
+LISA,
+RAYADA,
+CON_LUNARES,
+A_CUADROS,
+ESTAMPADO
+}
+
+class Color{
+-red:int
+-green:int
+-blue:int
+}
+
+class Borrador {
+-tipo:Tipo
+-material:Material
+-colorPrimario:Color
+-colorSecundario:Color
++definirMaterial(Material):Borrador
++definirColorPrimario(Color):Borrador
++definirColoSecundario(Color):Borrador
++generarPrenda(Tipo,Material,Color,Color):Prenda
+}
+
+abstract class Sastre {
++generarUniforme():Uniforme
++fabricarParteSuperior():Prenda
++fabricarParteInferior():Prenda
++fabricarParteCalzado():Prenda
+}
+
+class SanJuanSastrero extends Sastre {
++fabricarParteSuperior():Prenda
++fabricarParteInferior():Prenda
++fabricarParteCalzado():Prenda
+}
+
+class InstitutoSanJuan extends Sastre {
++fabricarParteSuperior():Prenda
++fabricarParteInferior():Prenda
++fabricarParteCalzado():Prenda
+}
+
+class Uniforme {
+-parteSuperior:Prenda
+-prendaInferior:Prenda
+-calzado:Prenda
+}
+
+Prenda --> Material
+Prenda --> Tipo
+Prenda -->"2" Color
+Tipo --> Categoria
+Material --> Trama
+Borrador -> Tipo
+Borrador --> Material
+Borrador --> "2" Color
+Borrador ..> Prenda:<Crea>
+Sastre .right.> Uniforme:<Crea>
+Sastre ..> Borrador:<Usa>
+@enduml

@@ -1,0 +1,110 @@
+Pseudo de segunda Iteracion.
+
+class Prenda {
+
+    Prenda(Tipo, Material, Color, Color)
+	if(validaciones para tipoDePrenda, Material y primerColor == NULL)
+		new prendaInvalidaException("Es una prenda invalida")
+}
+
+class Tipo {
+Categoria categoria
+}
+
+enum Categoria {
+PARTE_SUPERIOR
+CALZADO
+PARTE_INFERIOR
+ACCESORIO
+}
+
+class Color {
+int red, green, blue
+    
+     Color(red, green, blue)
+
+}
+
+
+class prendaInvalidaException {
+
+}
+
+---- NUEVO
+
+// Constructor editado. PD: Es lo mismo, el Color queda dudoso .. 
+class Prenda {
+
+    Prenda(Tipo, Material, Color, Color)
+	if(validaciones para tipoDePrenda, Material y primerColor == NULL)
+		new prendaInvalidaException("Es una prenda invalida")
+}
+
+
+//CLASE MATERIAL EDITADO
+class Material {
+   Trama trama
+   
+   Material(trama){
+ 	if(trama == NULL)
+	    trama = TRAMA.LISA
+   }
+}
+
+enum Trama {
+LISA,
+RAYADA,
+CON_LUNARES,
+A_CUADROS,
+ESTAMPADO
+}
+
+class Borrador {
+   Tipo tipo
+   Material material
+   Color colorPrimario
+   Color colorSecundario
+
+   Borrador(Tipo)
+   Borrador definirMaterial(Material)
+   Borrador definirColorPrimario(Color)
+   Borrador definirColorSecundario(Color)
+   Prenda generarPrenda(tipo, material, colorPrimario, colorSecundario)
+}
+
+class Uniforme {
+Prenda prendaSuperior 
+Prenda prendaInferior
+Prenda calzado
+}
+
+abstract class Sastre {
+
+   Uniforme generarUniforme()
+   	return (new Uniforme(this.fabricarParteSuperior(), this.fabricarParteInferior(), this.fabricarCalzado()))
+
+protected abstract fabricarParteSuperior()
+protected abstract fabricarParteInferior()
+protected abstract fabricarCalzado()
+
+}
+
+class SanJuanSastrero extends Sastre {
+  fabricarParteSuperior()
+	borrador = new Borrador....
+// lo que queda
+
+ fabricarParteInferior()
+ fabricarCalzado()
+// lo que queda
+}
+
+class IntitutoJohnsonSastrero extends Sastre {
+  fabricarParteSuperior()
+	borrador = new Borrador....
+	borrador.
+
+ fabricarParteInferior()
+ fabricarCalzado()
+// lo que queda
+}
